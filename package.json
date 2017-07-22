@@ -1,0 +1,36 @@
+{
+  "name": "nodejs-loginapp",
+  "version": "1.0.0",
+  "description": "A Node.js login, registration and access control using Express and Passport",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harishkmr/nodejs-loginapp.git"
+  },
+  "author": "Harisha V",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harishkmr/nodejs-loginapp/issues"
+  },
+  "homepage": "https://github.com/harishkmr/nodejs-loginapp#readme",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "morgan": "^1.8.2",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
+  }
+}
