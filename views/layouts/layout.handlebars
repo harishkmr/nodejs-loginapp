@@ -14,7 +14,9 @@
     <div class="header clearfix">
       <nav>
         <ul class="nav nav-pills pull-right">
-          <li role="presentation"><a href="/">Home</a></li>
+          {{#if user }}
+            <li role="presentation"><a href="/">Dashboard</a></li>
+          {{/if}}
           {{#if user }}
             <li role="presentation"><a href="/users/logout">Logout</a></li>
           {{else}}
