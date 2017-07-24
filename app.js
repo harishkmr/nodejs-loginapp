@@ -1,5 +1,4 @@
 var express = require('express');
-//var morgan  = require('morgan')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -30,7 +29,6 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(morgan('combined'))
 
 // Express Session
 app.use(session({
