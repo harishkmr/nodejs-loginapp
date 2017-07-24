@@ -61,23 +61,25 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password'
-  },
+passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
+   User.getUserByUsername(username, function(err, user){
+   	if(err) throw err;
+   	if(!user){
+   		return done(null, false, {message: 'Unknown User'});
+   	}
+
+   	User.comparePassword(password, user.password, function(err, isMatch){
+   		if(err) throw err;
+   		if(isMatch){
+   			return done(null, user);
+   		} else {
+   			return done(null, false, {message: 'Invalid password'});
+   		}
+   	});
+   });
+}));
+
 
 router.post('/login',
   passport.authenticate('local', { successRedirect:'/', failureRedirect:'/users/login', failureFlash: true }),

@@ -1,5 +1,5 @@
 var express = require('express');
-var morgan  = require('morgan')
+//var morgan  = require('morgan')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -12,7 +12,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/loginapp', { useMongoClient: true });
+mongoose.connect('mongodb://127.0.0.1:27017/loginapp', { useMongoClient: true });
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(morgan('combined'))
+//app.use(morgan('combined'))
 
 // Express Session
 app.use(session({
